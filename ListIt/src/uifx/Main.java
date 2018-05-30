@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     static Scene scene = new Scene(new SetFile());
+    
 
     @Override
     public void start(Stage primaryStage) {
