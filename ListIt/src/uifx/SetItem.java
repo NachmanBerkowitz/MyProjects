@@ -28,13 +28,10 @@ public class SetItem extends javafx.scene.layout.BorderPane {
 
     private void setUp() {
 
-        setBackground(Configure.BACKGROUND);
-        
         Button backButton = new Button("\uE0C4");
         backButton.setOnMouseClicked((event) -> {
             Main.loadSetFile();
         });
-        setTop(backButton);
         setAlignment(backButton, Pos.TOP_LEFT);
         setMargin(backButton, new Insets(10));
 
@@ -52,6 +49,7 @@ public class SetItem extends javafx.scene.layout.BorderPane {
         HBox hBox = new HBox(label, tf);
         hBox.setAlignment(Pos.CENTER);
         setCenter(hBox);
+        setTop(backButton);
     }
 
 }

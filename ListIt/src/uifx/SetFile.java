@@ -6,11 +6,8 @@
 package uifx;
 
 import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Border;
@@ -46,10 +43,12 @@ public class SetFile extends javafx.scene.layout.GridPane{
         int i = 0;
         for (String name : names) {
             NameLabel a = new NameLabel(name);
+            a.setId("nameLabel");
             labelGroup.getChildren().add(a);
             i++;
         }
-        labelGroup.setBackground(Configure.BACKGROUND);
+        
+        labelGroup.setId("labelGroup");
         labelGroup.setPadding(new Insets(0, 20, 0, 0));
         
         scrollPane.setContent(labelGroup);
@@ -84,15 +83,15 @@ public class SetFile extends javafx.scene.layout.GridPane{
             double insets = 8;
             setPadding(new Insets(insets));
 
-            setOnMouseEntered((MouseEvent event) -> {
-                setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, new CornerRadii(2), BorderWidths.DEFAULT)));
-                setPadding(new Insets(insets - 1));
-            });
-
-            setOnMouseExited((MouseEvent event) -> {
-                setBorder(Border.EMPTY);
-                setPadding(new Insets(insets));
-            });
+//            setOnMouseEntered((MouseEvent event) -> {
+//                setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, new CornerRadii(2), BorderWidths.DEFAULT)));
+//                setPadding(new Insets(insets - 1));
+//            });
+//
+//            setOnMouseExited((MouseEvent event) -> {
+//                setBorder(Border.EMPTY);
+//                setPadding(new Insets(insets));
+//            });
 
             setOnMousePressed((MouseEvent event) -> {
                 Main.loadSetItem(getText());

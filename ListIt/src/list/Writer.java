@@ -83,7 +83,25 @@ public class Writer {
      */
     private void removeNumber() {
         for (int i = 0; i < list.size(); i++) {
-            list.set(i, list.get(i).substring(list.get(i).indexOf(" ") + 1));
+
+            ArrayList<Integer> number = new ArrayList<>();
+            number.add(Character.getNumericValue(list.get(i).charAt(0)));
+            if ((int) (number.get(0) / 10.0 + 1) == 1) {
+                for (int j = 0; (int) (number.get(j) / 10.0 + 1) == 1; j++) {
+                    number.add(Character.getNumericValue(list.get(i).charAt(j + 1)));
+                }
+                number.remove(number.size() - 1);
+
+                StringBuilder sb = new StringBuilder();
+                number.forEach((item1) -> {
+                    sb.append(item1);
+                });
+
+                String n = sb.toString() + ". ";
+                if (list.get(i).indexOf(n) == 0) {
+                    list.set(i, list.get(i).replaceFirst(n, ""));
+                }
+            }
         }
     }
 
@@ -93,7 +111,6 @@ public class Writer {
     private void addNumber() {
         for (int i = 0; i < list.size(); i++) {
             list.set(i, (i + 1) + ". " + list.get(i));
-
         }
     }
 }

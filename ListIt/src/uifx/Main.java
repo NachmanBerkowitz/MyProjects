@@ -16,12 +16,12 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     static Scene scene = new Scene(new SetFile());
-    
 
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("List It");
-        
+
+        scene.getStylesheets().add(Main.class.getResource("ListIt.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setMaxHeight(500);
         primaryStage.show();

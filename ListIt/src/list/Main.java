@@ -17,13 +17,15 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        testPreciseAdd();
+//        testPreciseAdd();
+        int a = 6;
+        System.out.println((int)(a / 10.0 + 1));
     }
 
     public static void testPreciseAdd() {
         ArrayList<String> list = new ArrayList<>();
         for (int i = 65; i < 85; i++) {
-            list.add(Character.toString((char)i));
+            list.add(Character.toString((char) i));
         }
 //        list.add("a");
         list.remove("H");

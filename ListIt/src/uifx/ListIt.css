@@ -1,0 +1,35 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : May 29, 2018, 11:45:39 PM
+    Author     : em.es
+*/
+
+.root{
+    background-color: burlywood;
+    -fx-background-color: burlywood;
+}
+
+/* .label{
+    background-color: burlywood;
+    -fx-background-color: burlywood;
+} */
+
+#nameLabel{
+    background-color: burlywood;
+    -fx-background-color: violet;
+    -fx-text-decoration: underline;
+    -fx-width: max-content;
+}
+
+#nameLabel:hover{
+    text-decoration: underline;
+    -fx-text-decoration: underline;
+}
+#labelGroup{
+    background-color: burlywood;
+    -fx-background-color: burlywood;    
+}
