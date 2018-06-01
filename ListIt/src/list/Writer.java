@@ -84,22 +84,20 @@ public class Writer {
     private void removeNumber() {
         for (int i = 0; i < list.size(); i++) {
 
-            ArrayList<Integer> number = new ArrayList<>();
-            number.add(Character.getNumericValue(list.get(i).charAt(0)));
-            if ((int) (number.get(0) / 10.0 + 1) == 1) {
-                for (int j = 0; (int) (number.get(j) / 10.0 + 1) == 1; j++) {
-                    number.add(Character.getNumericValue(list.get(i).charAt(j + 1)));
+            if ((int) ((list.get(i).charAt(0) - 48) / 10.0 + 1) == 1) {
+
+                char[] digits2 = new char[list.get(i).length()];
+                int j = 0;
+
+                while ((int) ((list.get(i).charAt(j) - 48) / 10.0 + 1) == 1) {
+                    digits2[j] = list.get(i).charAt(j++);
                 }
-                number.remove(number.size() - 1);
 
-                StringBuilder sb = new StringBuilder();
-                number.forEach((item1) -> {
-                    sb.append(item1);
-                });
+                String number = String.valueOf(digits2, 0, j) + ". ";
+//                System.out.println(number);
 
-                String n = sb.toString() + ". ";
-                if (list.get(i).indexOf(n) == 0) {
-                    list.set(i, list.get(i).replaceFirst(n, ""));
+                if (list.get(i).startsWith(number)) {
+                    list.set(i, list.get(i).replaceFirst(number, ""));
                 }
             }
         }
