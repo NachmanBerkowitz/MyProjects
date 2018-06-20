@@ -26,14 +26,14 @@ public class FileList {
     }
 
     static String[] list() {
-        FilenameFilter filter = new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                return name.contains(".txt");
-            }
-        };
+        FilenameFilter filter = (File dir1, String name) -> name.contains(".txt");
         String[] names = dir.list(filter);
-        Arrays.sort(names, new Recent());
+        Arrays.sort(names,
+                (String s1,String s2)->{
+            long a = new File(dir + "\\" + s1).lastModified();
+            long b = new File(dir + "\\" + s2).lastModified();
+            return Long.compare(a, b) * -1;
+        });
 //        for (String name : names) {
 //            System.out.println(name);
 //        }
@@ -47,14 +47,5 @@ public class FileList {
         }
     }
 
-    static class Recent implements Comparator<String> {
-
-        @Override
-        public int compare(String s1, String s2) {
-            long a = new File(dir + "\\" + s1).lastModified();
-            long b = new File(dir + "\\" + s2).lastModified();
-            return Long.compare(a, b) * -1;
-        }
-
-    }
+    
 }
